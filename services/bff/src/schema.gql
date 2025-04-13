@@ -1,0 +1,41 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type LoginOutput {
+  accessToken: String!
+}
+
+type Mutation {
+  login(input: LoginInput!): LoginOutput!
+  signUpConfirm(input: SignUpConfirmInput!): SignUpConfirmOutput!
+  signup(input: SignUpInput!): SignUpOutput!
+}
+
+type Query {
+  ping: String!
+}
+
+input SignUpConfirmInput {
+  confirmationCode: String!
+  email: String!
+}
+
+type SignUpConfirmOutput {
+  message: String!
+}
+
+input SignUpInput {
+  email: String!
+  name: String!
+  password: String!
+}
+
+type SignUpOutput {
+  message: String!
+}

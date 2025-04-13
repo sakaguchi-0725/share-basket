@@ -1,0 +1,23 @@
+services:
+  bff:
+    build:
+      context: ./services/bff
+      dockerfile: docker/Dockerfile.dev
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - ./services/bff:/app
+    env_file:
+      - ./services/bff/.env
+  personal:
+    build:
+      context: ./services/personal
+      dockerfile: docker/go/Dockerfile.dev
+    restart: always
+    ports:
+      - 8080:8080
+    volumes:
+      - ./services/personal:/go/src/app
+    env_file:
+      - ./services/personal/.env

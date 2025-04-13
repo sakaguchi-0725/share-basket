@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "pb";
+
+import "google/protobuf/empty.proto";
+
+service AuthService {
+    rpc Login (LoginRequest) returns (LoginResponse);
+    rpc SignUp (SignUpRequest) returns (google.protobuf.Empty);
+    rpc SignUpConfirm (SignUpConfirmRequest) returns (google.protobuf.Empty);
+}
+
+message LoginRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message LoginResponse {
+    string access_token = 1;
+}
+
+message SignUpRequest {
+    string name = 1;
+    string email = 2;
+    string password = 3;
+}
+
+message SignUpConfirmRequest {
+    string email = 1;
+    string confirmation_code = 2;
+}
