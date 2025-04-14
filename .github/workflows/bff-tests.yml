@@ -1,0 +1,51 @@
+name: BFF Service Tests
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'services/bff/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'services/bff/**'
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Run BFF Tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: services/bff
+
+    strategy:
+      matrix:
+        node-version: [23.11.0]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: 'services/bff/package-lock.json'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Run unit tests
+        run: npm run test
+
+      - name: Upload test coverage
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: bff-test-coverage
+          path: services/bff/coverage 

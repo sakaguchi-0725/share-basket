@@ -7,6 +7,7 @@ import {
 import { ShoppingItem, Status } from './dto/shopping-item.dto'
 import { CreateShoppingItemInput } from './dto/create.input'
 import { firstValueFrom } from 'rxjs'
+import { safeParseNumber } from 'src/common/utils'
 
 @Injectable()
 export class PersonalShoppingService implements OnModuleInit {
@@ -29,10 +30,10 @@ export class PersonalShoppingService implements OnModuleInit {
     const response = await firstValueFrom(observable)
 
     return {
-      id: Number(response.id),
+      id: safeParseNumber(response.id),
       name: response.name,
       status: this.convertGqlStatus(response.status),
-      categoryId: Number(response.categoryId),
+      categoryId: safeParseNumber(response.categoryId),
     }
   }
 
@@ -43,10 +44,10 @@ export class PersonalShoppingService implements OnModuleInit {
 
     return response.items.map((item) => {
       return {
-        id: Number(item.id),
+        id: safeParseNumber(item.id),
         name: item.name,
         status: this.convertGqlStatus(item.status),
-        categoryId: Number(item.categoryId),
+        categoryId: safeParseNumber(item.categoryId),
       }
     })
   }
