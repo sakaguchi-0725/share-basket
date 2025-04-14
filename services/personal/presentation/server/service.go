@@ -1,7 +1,11 @@
 package server
 
-import pb "share-basket/personal/gen/auth"
+import (
+	auth "share-basket/personal/gen/auth"
+	personal "share-basket/personal/gen/personal"
+)
 
 type Services struct {
-	AuthService pb.AuthServiceServer
+	AuthService     auth.AuthServiceServer
+	ShoppingService personal.PersonalShoppingServiceServer
 }

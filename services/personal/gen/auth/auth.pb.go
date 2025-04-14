@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: auth/auth.proto
 
-package pb
+package auth_pb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -250,8 +250,8 @@ const file_auth_auth_proto_rawDesc = "" +
 	"\vAuthService\x120\n" +
 	"\x05Login\x12\x12.auth.LoginRequest\x1a\x13.auth.LoginResponse\x125\n" +
 	"\x06SignUp\x12\x13.auth.SignUpRequest\x1a\x16.google.protobuf.Empty\x12C\n" +
-	"\rSignUpConfirm\x12\x1a.auth.SignUpConfirmRequest\x1a\x16.google.protobuf.EmptyB^\n" +
-	"\bcom.authB\tAuthProtoP\x01Z\x17services/auth/gen/pb;pb\xa2\x02\x03AXX\xaa\x02\x04Auth\xca\x02\x04Auth\xe2\x02\x10Auth\\GPBMetadata\xea\x02\x04Authb\x06proto3"
+	"\rSignUpConfirm\x12\x1a.auth.SignUpConfirmRequest\x1a\x16.google.protobuf.EmptyBN\n" +
+	"\bcom.authB\tAuthProtoP\x01Z\aauth.pb\xa2\x02\x03AXX\xaa\x02\x04Auth\xca\x02\x04Auth\xe2\x02\x10Auth\\GPBMetadata\xea\x02\x04Authb\x06proto3"
 
 var (
 	file_auth_auth_proto_rawDescOnce sync.Once

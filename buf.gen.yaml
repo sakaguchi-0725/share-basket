@@ -1,10 +1,6 @@
 version: v2
 managed:
   enabled: true
-  override:
-    - file_option: go_package
-      path: auth/auth.proto
-      value: services/auth/gen/pb;pb
 plugins:
   # AuthService: Golang
   - remote: buf.build/protocolbuffers/go
