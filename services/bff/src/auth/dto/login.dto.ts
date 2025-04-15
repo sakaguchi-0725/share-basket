@@ -12,5 +12,5 @@ export class LoginInput {
 @ObjectType()
 export class LoginOutput {
   @Field()
-  accessToken: string
+  message: string
 }

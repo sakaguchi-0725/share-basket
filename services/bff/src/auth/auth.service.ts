@@ -1,5 +1,5 @@
 import { Inject, Injectable, OnModuleInit } from '@nestjs/common'
-import { LoginInput, LoginOutput } from './dto/login.dto'
+import { LoginInput } from './dto/login.dto'
 import { ClientGrpc } from '@nestjs/microservices'
 import { firstValueFrom } from 'rxjs'
 import { SignUpInput, SignUpOutput } from './dto/signup.dto'
@@ -19,7 +19,7 @@ export class AuthService implements OnModuleInit {
     this.service = this.client.getService<AuthServiceClient>('AuthService')
   }
 
-  async login(input: LoginInput): Promise<LoginOutput> {
+  async login(input: LoginInput): Promise<string> {
     const observable = this.service.login({
       email: input.email,
       password: input.password,
@@ -27,9 +27,7 @@ export class AuthService implements OnModuleInit {
 
     const response = await firstValueFrom(observable)
 
-    return {
-      accessToken: response.accessToken,
-    }
+    return response.accessToken
   }
 
   async signup(input: SignUpInput): Promise<SignUpOutput> {
