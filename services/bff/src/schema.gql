@@ -13,7 +13,7 @@ input LoginInput {
 }
 
 type LoginOutput {
-  accessToken: String!
+  message: String!
 }
 
 type Mutation {
