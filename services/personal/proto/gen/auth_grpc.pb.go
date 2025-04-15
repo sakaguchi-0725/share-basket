@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             (unknown)
-// source: auth/auth.proto
+// source: personal/auth.proto
 
-package auth_pb
+package gen
 
 import (
 	context "context"
@@ -20,9 +20,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AuthService_Login_FullMethodName         = "/auth.AuthService/Login"
-	AuthService_SignUp_FullMethodName        = "/auth.AuthService/SignUp"
-	AuthService_SignUpConfirm_FullMethodName = "/auth.AuthService/SignUpConfirm"
+	AuthService_Login_FullMethodName         = "/personal.AuthService/Login"
+	AuthService_SignUp_FullMethodName        = "/personal.AuthService/SignUp"
+	AuthService_SignUpConfirm_FullMethodName = "/personal.AuthService/SignUpConfirm"
 )
 
 // AuthServiceClient is the client API for AuthService service.
@@ -177,7 +177,7 @@ func _AuthService_SignUpConfirm_Handler(srv interface{}, ctx context.Context, de
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var AuthService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "auth.AuthService",
+	ServiceName: "personal.AuthService",
 	HandlerType: (*AuthServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -194,5 +194,5 @@ var AuthService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "auth/auth.proto",
+	Metadata: "personal/auth.proto",
 }

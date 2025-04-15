@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: personal/shopping.proto
 
-package personal_pb
+package gen
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -254,8 +254,8 @@ const file_personal_shopping_proto_rawDesc = "" +
 	"\x10STATUS_PURCHASED\x10\x012\xa6\x01\n" +
 	"\x17PersonalShoppingService\x12E\n" +
 	"\x06Create\x12#.personal.CreateShoppingItemRequest\x1a\x16.personal.ShoppingItem\x12D\n" +
-	"\x06GetAll\x12\x16.google.protobuf.Empty\x1a\".personal.GetShoppingItemsResponseBj\n" +
-	"\fcom.personalB\rShoppingProtoP\x01Z\vpersonal.pb\xa2\x02\x03PXX\xaa\x02\bPersonal\xca\x02\bPersonal\xe2\x02\x14Personal\\GPBMetadata\xea\x02\bPersonalb\x06proto3"
+	"\x06GetAll\x12\x16.google.protobuf.Empty\x1a\".personal.GetShoppingItemsResponseBh\n" +
+	"\fcom.personalB\rShoppingProtoP\x01Z\tproto/gen\xa2\x02\x03PXX\xaa\x02\bPersonal\xca\x02\bPersonal\xe2\x02\x14Personal\\GPBMetadata\xea\x02\bPersonalb\x06proto3"
 
 var (
 	file_personal_shopping_proto_rawDescOnce sync.Once

@@ -2,9 +2,8 @@ package registry
 
 import (
 	"context"
-	auth "share-basket/personal/gen/auth"
-	personal "share-basket/personal/gen/personal"
 	"share-basket/personal/presentation/server"
+	pb "share-basket/personal/proto/gen"
 
 	"google.golang.org/protobuf/types/known/emptypb"
 )
@@ -18,18 +17,18 @@ func NewServices(c *container) server.Services {
 
 type authService struct {
 	container *container
-	auth.UnimplementedAuthServiceServer
+	pb.UnimplementedAuthServiceServer
 }
 
-func (s *authService) Login(ctx context.Context, req *auth.LoginRequest) (*auth.LoginResponse, error) {
+func (s *authService) Login(ctx context.Context, req *pb.LoginRequest) (*pb.LoginResponse, error) {
 	return s.container.LoginHandler().Handle(ctx, req)
 }
 
-func (s *authService) SignUp(ctx context.Context, req *auth.SignUpRequest) (*emptypb.Empty, error) {
+func (s *authService) SignUp(ctx context.Context, req *pb.SignUpRequest) (*emptypb.Empty, error) {
 	return s.container.SignUpHandler().Handle(ctx, req)
 }
 
-func (s *authService) SignUpConfirm(ctx context.Context, req *auth.SignUpConfirmRequest) (*emptypb.Empty, error) {
+func (s *authService) SignUpConfirm(ctx context.Context, req *pb.SignUpConfirmRequest) (*emptypb.Empty, error) {
 	return s.container.SignUpConfirmHandler().Handle(ctx, req)
 }
 
@@ -39,14 +38,14 @@ func newAuthService(c *container) *authService {
 
 type shoppingService struct {
 	container *container
-	personal.UnimplementedPersonalShoppingServiceServer
+	pb.UnimplementedPersonalShoppingServiceServer
 }
 
-func (s *shoppingService) Create(ctx context.Context, req *personal.CreateShoppingItemRequest) (*personal.ShoppingItem, error) {
+func (s *shoppingService) Create(ctx context.Context, req *pb.CreateShoppingItemRequest) (*pb.ShoppingItem, error) {
 	return s.container.CreateShoppingItemHandler().Handle(ctx, req)
 }
 
-func (s *shoppingService) GetAll(ctx context.Context, req *emptypb.Empty) (*personal.GetShoppingItemsResponse, error) {
+func (s *shoppingService) GetAll(ctx context.Context, req *emptypb.Empty) (*pb.GetShoppingItemsResponse, error) {
 	return s.container.GetShoppingItemsHandler().Handle(ctx, req)
 }
 

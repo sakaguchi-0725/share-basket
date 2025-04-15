@@ -3,7 +3,7 @@ package handler
 import (
 	"context"
 	"share-basket/personal/core"
-	pb "share-basket/personal/gen/personal"
+	pb "share-basket/personal/proto/gen"
 	"share-basket/personal/usecase"
 )
 

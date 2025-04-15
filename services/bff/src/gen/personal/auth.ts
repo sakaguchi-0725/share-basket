@@ -2,14 +2,14 @@
 // versions:
 //   protoc-gen-ts_proto  v2.7.0
 //   protoc               unknown
-// source: auth/auth.proto
+// source: personal/auth.proto
 
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Observable } from "rxjs";
 import { Empty } from "../google/protobuf/empty";
 
-export const protobufPackage = "auth";
+export const protobufPackage = "personal";
 
 export interface LoginRequest {
   email: string;
@@ -31,7 +31,7 @@ export interface SignUpConfirmRequest {
   confirmationCode: string;
 }
 
-export const AUTH_PACKAGE_NAME = "auth";
+export const PERSONAL_PACKAGE_NAME = "personal";
 
 export interface AuthServiceClient {
   login(request: LoginRequest): Observable<LoginResponse>;
