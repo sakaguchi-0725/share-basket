@@ -1,13 +1,13 @@
 import { Inject, Injectable, OnModuleInit } from '@nestjs/common'
 import { LoginInput, LoginOutput } from './dto/login.dto'
 import { ClientGrpc } from '@nestjs/microservices'
-import { AuthServiceClient } from 'src/gen/auth/auth'
 import { firstValueFrom } from 'rxjs'
 import { SignUpInput, SignUpOutput } from './dto/signup.dto'
 import {
   SignUpConfirmInput,
   SignUpConfirmOutput,
 } from './dto/signup-confirm.dto'
+import { AuthServiceClient } from 'src/gen/personal/auth'
 
 @Injectable()
 export class AuthService implements OnModuleInit {

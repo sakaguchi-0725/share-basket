@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package personal;
 
-option go_package = "personal.pb";
+option go_package = "proto/gen";
 
 import "google/protobuf/empty.proto";
 

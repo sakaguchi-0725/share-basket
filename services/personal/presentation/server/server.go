@@ -6,8 +6,7 @@ import (
 	"net"
 	"os"
 	"os/signal"
-	auth "share-basket/personal/gen/auth"
-	personal "share-basket/personal/gen/personal"
+	pb "share-basket/personal/proto/gen"
 	"syscall"
 	"time"
 
@@ -27,8 +26,8 @@ func New(addr string) *Server {
 }
 
 func (s *Server) MapServices(services Services) {
-	auth.RegisterAuthServiceServer(s.Server, services.AuthService)
-	personal.RegisterPersonalShoppingServiceServer(s.Server, services.ShoppingService)
+	pb.RegisterAuthServiceServer(s.Server, services.AuthService)
+	pb.RegisterPersonalShoppingServiceServer(s.Server, services.ShoppingService)
 }
 
 func (s *Server) Run() {

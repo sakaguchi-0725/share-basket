@@ -4,7 +4,7 @@
 // - protoc             (unknown)
 // source: personal/shopping.proto
 
-package personal_pb
+package gen
 
 import (
 	context "context"
