@@ -3,6 +3,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices'
 import { join } from 'path'
 import { PersonalShoppingService } from './personal-shopping.service'
 import { PersonalShoppingResolver } from './personal-shopping.resovler'
+import { AuthModule } from '../auth/auth.module'
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { PersonalShoppingResolver } from './personal-shopping.resovler'
         },
       },
     ]),
+    AuthModule,
   ],
   providers: [PersonalShoppingResolver, PersonalShoppingService],
 })
