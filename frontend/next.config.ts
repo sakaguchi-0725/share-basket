@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  /* ルートディレクトリのpagesを使用するように設定 */
+  experimental: {
+    optimizeCss: false
+  },
+  pageExtensions: ['tsx', 'ts', 'jsx', 'js']
+}
 
 export default nextConfig;
