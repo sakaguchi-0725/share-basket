@@ -2,34 +2,33 @@ services:
   frontend:
     build:
       context: ./frontend
-      dockerfile: docker/Dockerfile
+      dockerfile: docker/Dockerfile.prod
     restart: always
     ports:
       - 3000:3000
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
     env_file:
       - ./frontend/.env
+    environment:
+      - NODE_ENV=production
   bff:
     build:
       context: ./services/bff
-      dockerfile: docker/Dockerfile.dev
+      dockerfile: docker/Dockerfile.prod
     restart: always
     ports:
-      - 3001:300
-    volumes:
-      - ./services/bff:/app
+      - 3001:3001
     env_file:
       - ./services/bff/.env
+    environment:
+      - NODE_ENV=production
   personal:
     build:
       context: ./services/personal
-      dockerfile: docker/go/Dockerfile.dev
+      dockerfile: docker/go/Dockerfile.prod
     restart: always
     ports:
       - 8080:8080
-    volumes:
-      - ./services/personal:/go/src/app
     env_file:
       - ./services/personal/.env
+    environment:
+      - GO_ENV=production 
